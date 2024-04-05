@@ -6,9 +6,9 @@ import { Spinner } from "../components/Spinner/spinner.js";
 export function handleContainerIconsClick () {
     const container = $(".container");
     container.on("click", async(e) => {
-        /* This event is handled by delegation.            
-        This line of code is checking if the clicked element is not one of the card's buttons.*/
+        /* This event is handled by delegation.*/
         if(!e.target.closest(".news-comment-icon") && !e.target.closest(".news-read-more-container")) return;
+        //if and only if the target is one of the card's buttons, the event is handled
             const target = $(e.target);
             if(target.hasClass("fa-bookmark")){
                 target.toggleClass("selected-icon"); 
