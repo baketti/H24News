@@ -13,6 +13,7 @@ export function initEventHandlers() {
     handleSideBarIconClick();
     handleSavedItemsClick();
     handleCommentsDialogScroll();
+    handleCommentsDialogLinkClick();
     handleCommentsDialogResetOnClose();
 }
 
@@ -31,6 +32,16 @@ function handleSavedItemsClick () {
     $(".saved-items").on("click", (e) => { 
         if(!e.target.closest("button")) return;
         const url = $(e.target).closest('.btn').attr('href');
+        window.open(url);
+    });
+}
+
+function handleCommentsDialogLinkClick() {
+    const modalHeader = $("#exampleModal .modal-header");
+    console.log("modal header ",modalHeader);
+    modalHeader.on("click", (e) => {
+        if(!e.target.closest(".read-more-btn")) return;
+        const url = $(e.target).closest('.read-more-btn').attr('href');
         window.open(url);
     });
 }

@@ -54,7 +54,7 @@ export const CommentsDialogHeader = (by,time,title,url) => `
     </div>
     <p>${title}  
     <button type="button" href="${url}" 
-        class="btn btn-primary btn-floating"   
+        class="btn btn-primary btn-floating read-more-btn"   
         style="background:#151320;" data-mdb-ripple-init data-mdb-tooltip-init title="Read more"> 
         <i class="fas fa-arrow-up-right-from-square"></i>
     </button>
