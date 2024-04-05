@@ -1,6 +1,6 @@
 # H24News
 
-It's a demo that provides users with access to live news from the Hacker News API. Users can effortlessly explore the latest news, and relative comments, across different categories through an intuitive and user-friendly interface.
+It's a demo that provides users with access to live news from the Hacker News API. Users can effortlessly explore the latest news, and relative comments, across different categories through an intuitive and user-friendly interface: https://h24news.mdbgo.io.
 
 # About the project 
 A project for:
