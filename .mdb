@@ -1,0 +1,9 @@
+{
+  "projectName": "h24news",
+  "meta": {
+    "type": "frontend"
+  },
+  "packageManager": "npm",
+  "hash": "06947a89",
+  "domain": "h24news.mdbgo.io"
+}

@@ -1,0 +1,129 @@
+@import "./variables.scss";
+@import "./comments.scss";
+@import "./error.scss";
+@import "./navbar.scss";
+@import "./options.scss";
+@import "./news.scss";
+@import "./is-loading.scss";
+@import "./sidebar.scss";
+@import "./info.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $dark-light-color; 
+  border-radius: 4px; 
+}
+
+body {
+  color: $text-color; 
+  background-color: $dark-color;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  color: $text-color;
+  background-color: $dark-light-color;
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+.header {
+  font-size: 2.5em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: $dark-light-color !important;
+  box-shadow: 0 0 30px rgba(0,0,0,0.18);
+  z-index: 1;
+}
+
+.header h4 {
+  font-weight: 600;
+  font-size: 40px;
+  letter-spacing: 5px;
+}
+
+.btn:hover {
+  cursor: pointer !important;
+}
+
+span i {
+  cursor: pointer !important;
+}
+
+i {
+  cursor: pointer !important;
+}
+
+#not-show {
+  display: none;
+}
+
+.selected-icon{
+  color: #48a5f1
+}
+
+.selected-icon span{
+  color:$text-color;
+}
+
+/* load-more button */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+#load-more {
+  font-weight: bold;
+  color: "#fff";
+  padding: 0.8em 1.5em;
+  border-radius: 0.5em;
+  width: 120px;
+  background-color: $dark-light-color;
+  transition: transform 0.3s ease;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+/* -------------- */
+
+.info-button {
+  position: absolute;
+  top:-10px;
+  right: 10px !important;
+}
+
+.footer {
+  padding: 20px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .news-description{
+    width: 90%;
+  }
+}

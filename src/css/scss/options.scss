@@ -1,0 +1,29 @@
+
+.options-container {
+    margin: 7em 0 2em 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    text-align: center;
+  }
+  
+  .option {
+    background-color: $dark-light-color;
+    padding: 0.8em 1.5em;
+    border-radius: 0.5em;
+    text-transform: capitalize !important;
+    color: $text-color !important;
+    width: 80px;
+    transition: transform 0.3s ease;
+    cursor: pointer !important;
+  }
+  .option:hover {
+    background-color: unset;
+    color: unset;
+    cursor: pointer !important;
+    transform: scale(1.3); 
+  }
+  .option.active {
+    transform: scale(1.4); 
+  }

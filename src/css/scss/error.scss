@@ -1,0 +1,30 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.spinner {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .2;
+}
+
+.error-message {
+    font-weight: 600;
+    width: 100%;
+    background: black;
+    opacity: .4;
+    display: flex;
+    justify-content: center;
+    margin-top:auto;
+}

@@ -1,0 +1,25 @@
+@import './variables.scss';
+#InfoModal {
+    .info-text-container{
+        width: 100%;
+        padding: 10px;
+        color:$text-color;
+        text-align: center;
+        p{
+            font-style: italic;
+        }  
+        ul{
+            text-align: start;
+        }    
+    }
+    #closeInfoModal{
+        background-color: $dark-color;
+        font-weight: bold;
+        color: "#fff";
+        padding: 0.8em 1.5em;
+        border-radius: 0.5em;
+        width: 120px;
+        align-self: center;
+        margin-bottom: 12px;
+    }
+}

@@ -1,0 +1,51 @@
+.is-loading {
+    .news-title, 
+    .user-name,
+    .shared-at,
+    .news-description,
+    .comment_title,
+    .comment_footer {
+      background: #eee;
+      background: linear-gradient(110deg, $dark-color 8%, $dark-light-color 18%, $dark-color 33%);
+      border-radius: 5px;
+      background-size: 200% 100%;
+      animation: 1.0s shine linear infinite;
+    }
+  
+    .news-header{
+      height: 24px;
+    }
+  
+    .user-name,
+    .shared-at {
+      height: 30px;
+      width: 100px;
+    }
+  
+    .news-title {
+      height: 70px;
+      margin-bottom: 30px;
+    }
+    .news-description{
+      height: 20px;
+    }
+  
+    .news-comment-icon {
+      height: 30px;
+      width: 100px;
+    }
+    .comment_title {
+      height: 30px;
+      width: 100%;
+    }
+    .comment_footer {
+      height: 70px;
+      width: 100%;
+    }
+  }
+
+@keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
