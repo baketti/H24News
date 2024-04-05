@@ -1,15 +1,15 @@
 import { BackToTopButton } from "./BackToTopButton/back-to-top-button";
 import { Navbar } from "./Navbar/navbar";
-//HEADER - OPTIONS-CONTAINER - CONTAINER - FOOTER
+
 export const HTMLBody = `
-    <section class="header">
+    <header class="header">
         ${Navbar}
-    </section>
+    </header>
     <!-- OPTIONS CONTAINER -->
     <section class="options-container"></section>
     <!-- BACK TO TOP BUTTON -->
     ${BackToTopButton}
     <!-- NEWS CARDS CONTAINER -->
-    <section class="container fade-in"></section>
+    <main class="container fade-in"></main>
     <!-- FOOTER -->
     <section class="footer"></section>`;
