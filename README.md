@@ -3,7 +3,8 @@
 It's a demo that provides users with access to live news from the Hacker News API. Users can effortlessly explore the latest news, and relative comments, across different categories through an intuitive and user-friendly interface.
 
 # About the project 
-
+A project for:
+# Start2Impact University
 The goal of H24News is to improve, democratize, and make accessible to all the dissemination of information, news, opinions, thoughts, and preferences of people. We believe that access to a wide range of information is fundamental for an informed and inclusive society.
 
 ### Installation
