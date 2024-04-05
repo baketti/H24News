@@ -8,19 +8,6 @@
         "lint": "lint-staged && pretty-quick --staged",
         "deploy": "webpack build --mode production && cd dist && mdb publish"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/mdbootstrap/mdb-starter-webpack"
-    },
-    "keywords": [
-        "material design",
-        "bootstrap",
-        "mdbootstrap",
-        "starter",
-        "webpack"
-    ],
-    "author": "MDBootstrap",
-    "license": "MIT",
     "dependencies": {
         "@popperjs/core": "^2.11.6",
         "axios": "^1.6.8",
