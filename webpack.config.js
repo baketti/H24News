@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
@@ -8,7 +10,7 @@ module.exports = {
   entry: './src/js/App.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
@@ -60,7 +62,7 @@ module.exports = {
             }
           },
         ]
-      }
+      },
     ]
   },
   plugins: [
@@ -68,10 +70,44 @@ module.exports = {
       favicon:'./public/favicon.png',
       filename:'index.html',
       template: path.resolve(__dirname, './src/index.html'),
-      meta: {
-        'og:image': './public/og-image.png',
-        'twitter:image': './public/og-image.png',
-      },
+    }),
+    new HtmlWebpackTagsPlugin({
+      metas: [
+        {
+          path: 'og-image.png',
+          attributes: {
+              property: 'og:image',
+              content: "og-image.png"
+          }
+        },
+        {
+          attributes: {
+              property: 'og:image:type',
+              content: "image/png"
+          }
+        },
+        {
+          path: 'og-image.png',
+          attributes: {
+              property: 'twitter:image',
+              content: "og-image.png"
+          }
+        },
+        {
+          attributes: {
+              property: 'twitter:image:type',
+              content: "image/png"
+          }
+        },
+      ]
+    }),
+    new CopyPlugin({
+      patterns: [
+        { 
+          from: path.resolve(__dirname,'public/og-image.png'), 
+          to: "" 
+        },
+      ],
     }),
     new CleanWebpackPlugin(),
     new webpack.ProvidePlugin({
