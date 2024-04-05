@@ -430,20 +430,6 @@ body {
   background-color: #151320;
 }
 
-#btn-back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  color: #ffffff;
-  background-color: #1c1b29;
-  transition: transform 0.3s ease;
-  z-index: 9999;
-}
-#btn-back-to-top:hover {
-  transform: scale(1.1);
-}
-
 .header {
   font-size: 2.5em;
   position: fixed;
@@ -506,6 +492,21 @@ i {
 }
 
 /* -------------- */
+/* Back-to-top button */
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  color: #ffffff;
+  background-color: #1c1b29;
+  transition: transform 0.3s ease;
+}
+#btn-back-to-top:hover {
+  transform: scale(1.1);
+}
+
+/* ------------------ */
 .info-button {
   position: absolute;
   top: -10px;
@@ -520,6 +521,15 @@ i {
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 470px) {
+  .info-text-container {
+    height: 550px;
+    overflow: scroll;
+  }
+  #btn-back-to-top {
+    z-index: 9999;
+  }
+}
 @media only screen and (max-width: 768px) {
   .container {
     grid-template-columns: repeat(1, 1fr);
