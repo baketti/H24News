@@ -28,7 +28,6 @@ const options = [
         },
 ];
 
-//Options Buttons Creation && rendering
 const createOptions = () => {
     const optionsContainer = $(".options-container");
     for (let i of options) {

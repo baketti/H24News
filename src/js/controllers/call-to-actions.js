@@ -7,6 +7,7 @@ export function handleContainerIconsClick () {
     const container = $(".container");
     container.on("click", async(e) => {
         /* This event is handled by delegation.*/
+        console.log(e.target.classList);
         if(!e.target.closest(".news-comment-icon") && !e.target.closest(".news-read-more-container")) return;
         //if and only if the target is one of the card's buttons, the event is handled
             const target = $(e.target);
@@ -42,15 +43,17 @@ export function handleContainerIconsClick () {
                 removeSavedNews(id,type);
                 return;
             }
+            else if (target.hasClass("fa-arrow-up-right-from-square")){
+                const url = target.closest('button').attr("href")
+                window.open(url);
+                return;
+            }
             else if (target.hasClass("fa-comments") || target.closest(".show-comments")){
                 const commentsContainer = $('.comments-container');
                 commentsContainer.html(Spinner);
                 const data = await getCurrentNewsData(e);
                 showComments(e,data);   
-            }
-            else if (target.hasClass("fa-arrow-up-right-from-square")){
-                const url = target.closest('button').attr("href")
-                window.open(url);
+                return;
             }
         }
     );
