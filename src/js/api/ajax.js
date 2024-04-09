@@ -2,6 +2,7 @@ import axios from "axios";
 import _ from "lodash";
 import { BASE_URL, rest_URL, ITEM_URL } from "./endpoints";
 import { showAjaxNetworkError } from "../ui-functions/ui-functions";
+//Here, MEMOIZATION is used to avoid multiple requests for the same data
 
 const AxiosGETids = axios.create({
     baseURL: BASE_URL,
@@ -17,6 +18,7 @@ const getAllNewsIds = _.memoize(async (type) => {
     }
 });
 
+//all interceptors are unuseful in this case, but they are only 2 lines of code so I left them 
 AxiosGETids.interceptors.request.use((config) => {
     return config;
   }, (error) => {
