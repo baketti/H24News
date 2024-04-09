@@ -1,5 +1,7 @@
+/* The DOMHelper class manages news-related data such as type(category), index(of IDs array) and
+comments(.kids) to help the DOM show the right content; */
 class DOMHelper {
-  static type = 'new';//news option type "new" at start
+  static type = 'new';//news option type, "new" at start
   static index = 0; //news index, 0 at start
   static kids = [];//comments ids of the current news
   static commentsIndex = 0;//current comments index shown

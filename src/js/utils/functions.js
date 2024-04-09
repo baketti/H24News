@@ -1,6 +1,8 @@
 import { getSingleItemData } from "../api/ajax";
 import DOMHelper from "./DOMHelper.js";
 
+/* This Function takes a single news obj and returns the same obj in a smart way; 
+To ensure that news data obj has all properties needed.*/
 export function getStoryDataSmart(story) {
   const defaultStory = {
     by: 'Anonymous',
@@ -13,7 +15,12 @@ export function getStoryDataSmart(story) {
     type: null,
     url: null,
   };
+  /* 
+  1)extracts only the keys that are present in the defaultStory object;
+  2)the keys are equal but the story object couldn't have all of them;
+  3)if the story object has not all the keys, the missing ones are set to the default values; */
   const extractedStory = _.pick(story, Object.keys(defaultStory));
+  //the smartStory object is the result of merging the defaultStory with the extractedStory
   const smartStory = { ...defaultStory, ...extractedStory };
   return smartStory;
 }
@@ -32,22 +39,32 @@ export function getCommentDataSmart(comment) {
   return completeComment;
 }
 
+//This Function takes all the list of comments ids and returns an array of 10 or less ids
 export function getPartialCommentsIds(...kids){
   const totalCommentsAmount = kids.length;
+  //if there are less than 10 comments, return all of them
   if(totalCommentsAmount < 10) return kids;
   const startIndex = DOMHelper.commentsIndex;
+  //if all comments are shawn yet, return null
   if(startIndex >= totalCommentsAmount) return null;
+  //10 is the standard number of comments to show, so set it as default
   let n = 10;
+  //if the remaining comments of the current story are less than 10, set n to the remaining comments amount
   if(totalCommentsAmount - startIndex < n) {
       n = totalCommentsAmount - startIndex;
   }
+  //take n comments from the sliced array
   const partialCommentsIds = _.take((_.slice(kids,startIndex)),n);
+  //update the current comments index
   DOMHelper.commentsIndex+=10; 
   return partialCommentsIds;
 }
 
+//This Function takes the event object and returns the current news data to show on the comments dialog header
 export async function getCurrentNewsData(e) {
+  //takes news id from the target data-id attribute
   const id = $(e.target.closest(".news-card")).attr("data-id");
+  //takes news data from the api
   const data = await getSingleItemData(id);
   if(!data){
       return;
@@ -55,8 +72,10 @@ export async function getCurrentNewsData(e) {
   return data;
 }
 
+//This Function takes the target element and returns an object with the id, text and url of the current news to show on the sidebar
 export function getCurrentNewsDataFromDOM(target) {
   const currentCard = target.closest(".news-card");
+  //Get id,text and url from the current news html
   const id = currentCard.attr("data-id");
   const text = currentCard.find(".news-title").text();
   const url = currentCard.find('.news-read-more-container button').attr('href');

@@ -4,13 +4,15 @@ import { showComments, renderSavedNews, removeSavedNews } from '../components/Ca
 import { Spinner } from "../components/Spinner/spinner.js";
 
 export function handleContainerIconsClick () {
+    /* This event is handled by delegation. */
     const container = $(".container");
+    //click from the container of all news
     container.on("click", async(e) => {
-        /* This event is handled by delegation.*/
         console.log(e.target.classList);
         if(!e.target.closest(".news-comment-icon") && !e.target.closest(".news-read-more-container")) return;
         //if and only if the target is one of the card's buttons, the event is handled
             const target = $(e.target);
+            //target === read later icon
             if(target.hasClass("fa-bookmark")){
                 target.toggleClass("selected-icon"); 
                 const {id, text, url} = getCurrentNewsDataFromDOM(target);
@@ -24,6 +26,7 @@ export function handleContainerIconsClick () {
                 removeSavedNews(id,type);
                 return;
             }
+            //target === like icon
             else if(target.hasClass("fa-thumbs-up")){
                 target.toggleClass("selected-icon");                 
                 const scoreIcon = target;
@@ -43,11 +46,14 @@ export function handleContainerIconsClick () {
                 removeSavedNews(id,type);
                 return;
             }
+            //target === read more button
             else if (target.hasClass("fa-arrow-up-right-from-square")){
                 const url = target.closest('button').attr("href")
                 window.open(url);
                 return;
             }
+            //target === comments button
+            //double check because comments icon is wrapped in un a button
             else if (target.hasClass("fa-comments") || target.closest(".show-comments")){
                 const commentsContainer = $('.comments-container');
                 commentsContainer.html(Spinner);

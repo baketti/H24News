@@ -7,6 +7,7 @@ import {
 import { handleContainerIconsClick } from "./call-to-actions";
 import DOMHelper from "../utils/DOMHelper";
 
+//Function to attach event handlers at the start
 export function initEventHandlers() {
     handleNewsScroll();
     handleContainerIconsClick();
@@ -21,6 +22,7 @@ function handleNewsScroll() {
     $(window).on("scroll", showBackToTopButton);
 }
 
+//Function to handle sidebar open and close 
 function handleSideBarIconClick() {
     const openSidebarBtn = $(".sidebar-btn");
     const closeSidebarBtn = $(".sidebar-close");
@@ -37,8 +39,8 @@ function handleSavedItemsClick () {
 }
 
 function handleCommentsDialogLinkClick() {
+    //header of comments dialog
     const modalHeader = $("#exampleModal .modal-header");
-    console.log("modal header ",modalHeader);
     modalHeader.on("click", (e) => {
         if(!e.target.closest(".read-more-btn")) return;
         const url = $(e.target).closest('.read-more-btn').attr('href');
@@ -46,6 +48,7 @@ function handleCommentsDialogLinkClick() {
     });
 }
 
+//Function to load more comments when user scrolls to the bottom of the comments dialog
 function handleCommentsDialogScroll() {
     const modalBody = $(".modal-body");
     const commentsContainer = $('.comments-container');
@@ -53,6 +56,7 @@ function handleCommentsDialogScroll() {
         if (modalBody.scrollTop() + modalBody.innerHeight() >= modalBody[0].scrollHeight - 1) {
             const { kids } = DOMHelper;
             const currentCommentRendered = commentsContainer.children().length;
+            //if all comments are rendered or there are no comments, return
             if(currentCommentRendered >= kids.length || currentCommentRendered === 0) {
                 return;
             }

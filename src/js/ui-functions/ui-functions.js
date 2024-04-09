@@ -8,7 +8,9 @@ import { generateUI } from "./ui-generator.js";
 import { getPartialIds, getNewsData } from "../api/ajax.js";
 import { CardWithData } from "../components/Cards/card.js";
 
+//Function used only at the start
 const injectDataIntoNewsCards = async () => {
+    //type === "new" - index === 0
     const { type,index } = DOMHelper;
     prepareCardsContainer(10);
     const partialIds = await getPartialIds(type,index); 
@@ -19,21 +21,25 @@ const injectDataIntoNewsCards = async () => {
     generateUI(news);
   };
 
-function injectDataIntoCard (card,id,by,time,title,kids,score,url) {
+/* This function takes => 1)card element to inject data into; 2)id of the related news to set data-id attribute; 
+3)props to inject into the card */
+function injectDataIntoCard (card,id,...props) {
     if(card.hasClass('is-loading')){
         card.removeClass("is-loading");
     }
     card.attr("data-id", id);
-    card.html(CardWithData(by,time,title,kids,score,url));
+    card.html(CardWithData(...props));
   };
 
+/* Function used on option switch or load more click, to prepare news html skin within their container, based on the number of news(array.length) is passed in as parameter. All cards are in loading style while fetching or when user change category*/
 function prepareCardsContainer(length) {
+    //if there are cards in loading state yet, return
     if($(".container .is-loading").length > 0) return;
     for(let i=0;i<length;i++){
         cardLoading();
     }
 }
-
+/* This Function takes => 1)kids array; 2)comments container Element; 3)a boolean to check if there is spinner, and if yes remove it emptying comments container.*/
 async function loadAndRenderComments(commentsIds,container,thereIsSpinner = false) {
     const partialCommentsIds = getPartialCommentsIds(...commentsIds);
     if(!partialCommentsIds) return;
@@ -51,7 +57,8 @@ function resetNewsContainer() {
     container.html("");
 }
 
-function setOptionSelected(e) {
+
+function setOptionSelected(e) {//takes the event object
     let options = $(".option");
     for(let opt of options) {
         $(opt).removeClass("active");
@@ -66,6 +73,7 @@ function resetCommentsDialog() {
     modalHeader.html('');
 }
 
+//Function used when a news has no comments
 const NoCommentsAvailable = (container) => {
     const p = $('<p></p>');
     p.css({
@@ -76,6 +84,7 @@ const NoCommentsAvailable = (container) => {
     container.html(p);
 }
 
+//Callback that triggers when user scrolls
 function showBackToTopButton() {
   const backToTopButton = $('#btn-back-to-top');
   backToTopButton.on("click", backToTop);
@@ -98,10 +107,12 @@ function toggleSidebar() {
 
 function showAjaxNetworkError() {
     const errorContainer = $(document.body).find(".error-container");
+    //if error is shawn  yet, return
     if(errorContainer.length > 0) return;
     $(".container").append(ErrorContainer);
 };
 
+//Function to check if a news is "saved" and apply the corresponding style when it's rendered
 function checkForSavedNews (newsID) {
     DOMHelper.savedNews.forEach((savedNews) => {
         if(savedNews.id == newsID){
