@@ -7,7 +7,7 @@ The goal of H24News is to improve, democratize, and make accessible to all the d
 
 A project for:
 ### Final exam for Javascript Advanced of Start2Impact University!
-# Project score and feedback
+# Project score and feedback from  Giuseppe Scaramuzzino, Senior Software Engineer.
 ## Score: 500/500
 ## Feedback:
 Ciao Emanuele, complimenti per aver completato il progetto relativo al corso di JavaScript Advanced. Sono molto soddisfatto del lavoro che hai fatto.
@@ -24,7 +24,6 @@ hai utilizzato correttamente la libreria Lodash per il controllo dei dati che ar
 Hai fatto davvero un ottimo lavoro, sopratutto l'organizzazione del progetto.Imparerai sempre di più ad utilizzare questa suddivisione se deciderai di seguire le Guide dei principali front-end framework (Angular, React e VueJS).
 
 Complimenti per aver completato con successo il tuo progetto JavaScript Advanced.
-### Coach: Giuseppe Scaramuzzino, Senior Software Engineer.
 
 ### Installation
 ```
