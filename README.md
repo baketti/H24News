@@ -6,7 +6,7 @@ It's a demo that provides users with access to live news from the Hacker News AP
 The goal of H24News is to improve, democratize, and make accessible to all the dissemination of information, news, opinions, thoughts, and preferences of people about techs. We believe that access to a wide range of information is fundamental for an informed and inclusive society.
 
 A project for:
-### Final exam for Javascript Advanced course of Start2Impact University!
+### Final exam for Javascript Advanced course of Start2Impact University! Score: 500/500
 
 ### Installation
 ```
